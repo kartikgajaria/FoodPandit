@@ -1,0 +1,11 @@
+.vscode
+jsconfig.json
+typings/*
+plugins/*
+platforms/*
+node_modules/*
+/build/
+mobilefirst/*
+www/www.war
+www/.DS_Store
+.DS_Store
