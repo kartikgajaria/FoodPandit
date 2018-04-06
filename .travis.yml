@@ -21,6 +21,4 @@ android:
 install:
     - npm install
 script:
-    - npm run cover
 after_script:
-    - codecov
