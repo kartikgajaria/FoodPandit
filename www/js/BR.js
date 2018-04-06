@@ -52,7 +52,3 @@ BR.stopBLEScan = function() {
 BR.makeToast = function(msg){
     window.plugins.toast.show(msg, 'long', 'bottom', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})
 }
-
-BR.orderNow = function(){
-    console.log("Order Now Called");
-}
