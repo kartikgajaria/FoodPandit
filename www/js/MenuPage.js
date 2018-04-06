@@ -1,4 +1,4 @@
-var menuTemplate = "<div class='price_grid'><div class='content_right-box1'><img src='##_IMG_##' class='img-responsive' alt='Item Image'></div><input type='checkbox' id='##_ID_##' /><label for='##_ID_##'><h3>##_ItemName_##</h3></label><h4>Price : ##_ItemPrice_##</h4></div>";
+var menuTemplate = "<div class='price_grid'><div class='content_right-box1' style='margin-left:40px;margin-bottom: 15px;'><img src='##_IMG_##' class='img-responsive' alt='Item Image'></div><input type='checkbox' id='##_ID_##' name='orderItem' /><label for='##_ID_##'><h3>##_ItemName_##</h3></label><h4>Price : ##_ItemPrice_##</h4></div>";
 var urlTemplate = "http://##_IP_##:8080/FoodPandit_BillingServer/RequestHandler";
 var MenuPageMain = function() {
   // Application Constructor
@@ -10,9 +10,7 @@ function onDeviceReady() {
   BR.beacon = JSON.parse(localStorage.beacon);
   BR.config = JSON.parse(localStorage.config);
   //document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-  document
-    .getElementById("orderNowButton")
-    .addEventListener("click", BR.orderNow);
+  document.getElementById("orderNowButton").addEventListener("click",orderNow);
   document.addEventListener("backbutton", BackKeyDown, true);
   prepareMenu();
 }
@@ -45,6 +43,18 @@ var prepareMenu = function() {
         SpinnerDialog.hide();
     }, 2000);
   });
+};
+
+var orderNow = function(){
+  console.log("Order Now Called");
+  var order = [];
+  $.each($("input[name='orderItem']:checked"), function(){            
+    order.push($(this).attr("id"));
+  });
+  if(order.length<=0)
+    alert("Please Select At Least One Item.");
+  else  
+    console.log(order);
 };
 //app.initialize();
 MenuPageMain();
