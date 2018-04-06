@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+  <title>FoodPandit</title>
+
+  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Custom Theme files -->
+  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <!-- Custom Theme files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  </script>
+  <!----webfonts---->
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900' rel='stylesheet' type='text/css'>
+  <!----//webfonts---->
+  <!-- Add fancyBox main JS and CSS files -->
+  <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+  <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+  <script>
+    $(document).ready(function () {
+      $('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+        fixedContentPos: false,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: true,
+        preloader: false,
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+      });
+    });
+  </script>
+</head>
+
+<body><body>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <a>
+          <img src="images/logo.png" class="img-responsive" alt="">
+        </a>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <div class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 banner_left">
+          <ul class="head">
+            <h1>Welcome to ResName</h1>
+          </ul>
+          <p class="m_1" align="center">Order Away!</p>
+          <div class="col-md-6" id="menuPlaceHolder">
+           
+         </div>
+
+          <div class="clearfix"> </div>
+        </div>
+        <div class="footer-top">
+            <div class="container">
+                <p>Order Away To Get Delicious Food</p>
+                <div class="left_btn"><a id="orderNowButton">Order Now!</a></div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Do Not Touch This -->
+  <script src="js/BR.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/MenuPage.js"></script>
+</body>
+
+</html>
