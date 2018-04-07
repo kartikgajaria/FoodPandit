@@ -72,6 +72,9 @@ ul.button li.yellow a:hover{
 	background:url("../images/middle.jpg");
 	padding-top: 5em;
 }
+.bannerOrder{
+	padding-top: 5em;
+}
 .banner_right {
 	padding: 0 0px 0 3em;
 }
@@ -457,7 +460,7 @@ ul.banner_btn li a {
 	margin: 1em 0 0 0;
 }
 p.m_1 {
-	font-size: 1em;
+	font-size: 2em;
 	margin: 0;
 }
 .banner_right {

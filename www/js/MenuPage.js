@@ -26,7 +26,8 @@ function onConfirm(buttonIndex) {
   if (buttonIndex == 2) navigator.app.exitApp();
 }
 var prepareMenu = function() {
-  var url = urlTemplate.replace(/##_IP_##/g, BR.config.serverIP);
+  //var url = urlTemplate.replace(/##_IP_##/g, BR.config.serverIP);
+  var url = urlTemplate.replace(/##_IP_##/g, "192.168.43.103");
   $.post(url, function(data) {
     for (i = 0; i < data.itemset.length; i++) {
       //console.log(data.itemset[i]);
@@ -47,14 +48,31 @@ var prepareMenu = function() {
 
 var orderNow = function(){
   console.log("Order Now Called");
+  var orderJSON ={"tableid":"","order":{}};
   var order = [];
   $.each($("input[name='orderItem']:checked"), function(){            
     order.push($(this).attr("id"));
   });
   if(order.length<=0)
     alert("Please Select At Least One Item.");
-  else  
-    console.log(order);
+  else{
+    orderJSON.tableid = BR.config.tableID.toString();
+    for(i=0;i<order.length;i++)
+      orderJSON.order[order[i]] = "1";
+      console.log(JSON.stringify(orderJSON));
+      $.ajax({
+          type: "POST",
+          url: "http://192.168.43.103:8080/FoodPandit_BillingServer/Wisper",
+          processData: false,
+          contentType: 'application/json',
+          data: JSON.stringify(orderJSON),
+          success: function(r) {
+            //alert("Order Placed\nYour Bill Is - "+r);
+            localStorage.bill = r;
+            window.location = "OrderSummary.html";
+          }
+      });
+  }  
 };
 //app.initialize();
 MenuPageMain();

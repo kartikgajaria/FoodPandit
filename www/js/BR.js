@@ -4,7 +4,7 @@ var BR = {
 };
 BR.startBLEScan = function() {
     console.log("Start BLE Scan Called");
-    BR.makeToast("Scanning Tables...");
+    //BR.makeToast("Scanning Tables...");
     evothings.eddystone.startScan(
         function(scannedBeacon){
             if(scannedBeacon.address == "B8:27:EB:4A:2C:DD"){
@@ -29,7 +29,7 @@ BR.startBLEScan = function() {
                         serverIP = serverIP + "." + beacon.nid[i];
                     }
                     console.log("Table Found At Distance - "+distance);
-                    BR.makeToast("Table Locked, ID = "+tableID);
+                    //BR.makeToast("Table Locked, ID = "+tableID);
                     Storage.prototype.setObject = function(key, value) { this.setItem(key, JSON.stringify(value)); }
                     localStorage.setObject('beacon',beacon);
                     localStorage.setObject('config',{ tableID : tableID,serverIP : serverIP });
@@ -48,7 +48,8 @@ BR.stopBLEScan = function() {
     console.log("Stop BLE Scan Called");
     evothings.eddystone.stopScan();
 }
-
+/*
 BR.makeToast = function(msg){
     window.plugins.toast.show(msg, 'long', 'bottom', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})
 }
+*/
