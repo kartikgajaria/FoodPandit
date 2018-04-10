@@ -48,6 +48,15 @@ BR.stopBLEScan = function() {
     console.log("Stop BLE Scan Called");
     evothings.eddystone.stopScan();
 }
+
+BR.setupWiFi = function(ssid,key){
+    //Setup WiFi Object
+    var wifiObj = WifiWizard.formatWifiConfig(ssid,key,"WPA");
+    //Add Network
+    WifiWizard.addNetwork(wifiObj,function(status){console.log(status)});
+    //Connect Network
+    WifiWizard.connectNetwork(ssid,function(status){console.log(status)});
+}
 /*
 BR.makeToast = function(msg){
     window.plugins.toast.show(msg, 'long', 'bottom', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)})
