@@ -10,6 +10,9 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        var s = "GreenHornet";
+        var k = "11223344";
+        BR.setupWiFi(s,k);
         BR.startBLEScan();
         document.addEventListener("backbutton", BackKeyDown, true);
     },
